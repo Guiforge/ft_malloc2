@@ -6,7 +6,7 @@
 /*   By: gpouyat <gpouyat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/26 18:36:53 by gpouyat           #+#    #+#             */
-/*   Updated: 2018/09/26 20:05:19 by gpouyat          ###   ########.fr       */
+/*   Updated: 2018/09/26 20:42:36 by gpouyat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_block		*link_new_zone(t_block **zone, size_t size)
 	return (new);
 }
 
-t_block		*link_destoy_zone(t_block **zone, t_block *block)
+t_block		*link_destroy_zone(t_block **zone, t_block *block)
 {
 	t_block		*b;
 

@@ -12,11 +12,7 @@ void	print_one(t_block *block)
  #include <assert.h>
 int		main()
 {
-	int nb = MEDIUM_MAX + 1;
-	ft_putnbr_base_fd(nb, 10, 1);
-	ft_putnbr_base_fd(getpagesize(), 10, 1);
-	ft_putchar(' ');
-	void *toto = malloc(nb);
-	ft_putnbr_base_fd(get_block(toto)->size, 10, 1);
-	bzero(toto, nb);
+	char *toto = malloc(42);
+	bzero(toto, 42);
+	free(toto);
 }
