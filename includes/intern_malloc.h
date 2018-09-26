@@ -6,7 +6,7 @@
 /*   By: gpouyat <gpouyat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/26 12:26:26 by gpouyat           #+#    #+#             */
-/*   Updated: 2018/09/26 16:54:16 by gpouyat          ###   ########.fr       */
+/*   Updated: 2018/09/26 20:05:04 by gpouyat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,20 @@ typedef struct		s_malloc_global
 # define BLOCK_SIZE sizeof(struct s_block)
 
 t_block		*create_zone(size_t size);
+t_block		*create_alloc(t_block *zone, size_t size);
 void		init_zones(void);
 t_block		*find_block_free(t_block *zone, size_t size);
 t_block		*find_block(t_block *zone, t_block *block, int free);
 void		check_align(size_t size);
-void		*get_data(t_block *block);
+void		*get_data(void *block);
 t_block		*get_block(void *data);
 t_block		*split_block(t_block *block, size_t size);
 void		defrag(t_block *zone);
+void		fusion(t_block *b);
+void		set_extra(t_block *block, size_t size, t_block *next,
+				t_block *previous, int free);
+t_block		*resize_block(t_block *block, size_t new_size);
+t_block		*link_destoy_zone(t_block **zone, t_block *block);
+t_block		*link_new_zone(t_block **zone, size_t size);
 
 #endif

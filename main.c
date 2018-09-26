@@ -12,21 +12,11 @@ void	print_one(t_block *block)
  #include <assert.h>
 int		main()
 {
-	printf("%lu\n", BLOCK_SIZE);
-	t_block *toto = create_zone(32);
-	printf("%lu, %d\n", toto->size + BLOCK_SIZE, getpagesize());
-	// printf("%lu, %lu\n", g_malloc.tiny->size, g_malloc.medium->size);
-	init_zones();
-	printf("%lu, %lu\n", g_malloc.tiny->size, g_malloc.medium->size);
-	t_block *fit = find_block_free(g_malloc.tiny, 48);
-	printf("BEFORE\n");
-	printf("%lx = %lx\n", (long)g_malloc.tiny, (long)fit);
-	print_one(fit);
-
-	void *new = split_block(fit, 16);
-	split_block(fit, 16);
-	fit = find_block_free(g_malloc.tiny, 16);
-	printf("AFTER\n");
-	print_one(fit);
-	printf("%lx = %lx\n", (long)g_malloc.tiny, (long)fit);
+	int nb = MEDIUM_MAX + 1;
+	ft_putnbr_base_fd(nb, 10, 1);
+	ft_putnbr_base_fd(getpagesize(), 10, 1);
+	ft_putchar(' ');
+	void *toto = malloc(nb);
+	ft_putnbr_base_fd(get_block(toto)->size, 10, 1);
+	bzero(toto, nb);
 }

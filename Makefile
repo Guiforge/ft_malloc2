@@ -6,7 +6,7 @@
 #    By: gpouyat <gpouyat@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/05 12:29:27 by gpouyat           #+#    #+#              #
-#    Updated: 2018/09/26 15:32:36 by gpouyat          ###   ########.fr        #
+#    Updated: 2018/09/26 19:07:18 by gpouyat          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,10 @@ C_R = \033[1;31m
 
 SRCS_NAME		+= intern/create_zone.c intern/error.c intern/init_zones.c \
 					intern/find_block.c intern/get.c intern/check_align.c \
-					intern/split_block.c
-SRCS_NAME		+= 
+					intern/split_block.c intern/set_extra.c \
+					intern/resize_block.c intern/defrag.c intern/link_zone.c \
+					intern/create_alloc.c
+SRCS_NAME		+= malloc.c
 
 
 ###############################################################################

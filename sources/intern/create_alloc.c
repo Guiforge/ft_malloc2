@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_align.c                                      :+:      :+:    :+:   */
+/*   creat_alloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpouyat <gpouyat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/26 15:14:00 by gpouyat           #+#    #+#             */
-/*   Updated: 2018/09/26 19:37:05 by gpouyat          ###   ########.fr       */
+/*   Created: 2018/09/26 19:02:19 by gpouyat           #+#    #+#             */
+/*   Updated: 2018/09/26 19:05:00 by gpouyat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/intern_malloc.h"
-#include "../../includes/malloc_error.h"
 
-void	check_align(size_t size)
+t_block		*create_alloc(t_block *zone, size_t size)
 {
-	if (size % 16)
-		malloc_error(E_INTERN_MALLOC_ALLIGN); // CODE ERROR TO DO
+	t_block		*fit;
+
+	fit = find_block_free(zone, size);
+	if (fit)
+	{
+		split_block(fit, size);
+		fit->free = 0;
+	}
+	return(fit);
 }

@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_align.c                                      :+:      :+:    :+:   */
+/*   ft_malloc.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpouyat <gpouyat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/26 15:14:00 by gpouyat           #+#    #+#             */
-/*   Updated: 2018/09/26 19:37:05 by gpouyat          ###   ########.fr       */
+/*   Created: 2017/12/25 21:16:09 by gpouyat           #+#    #+#             */
+/*   Updated: 2018/09/26 19:11:42 by gpouyat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/intern_malloc.h"
-#include "../../includes/malloc_error.h"
+#ifndef FT_MALLOC_H
+# define FT_MALLOC_H
 
-void	check_align(size_t size)
-{
-	if (size % 16)
-		malloc_error(E_INTERN_MALLOC_ALLIGN); // CODE ERROR TO DO
-}
+# include "../libft/includes/libft.h"
+# include "./intern_malloc.h"
+
+void	free(void *ptr);
+void	*malloc(size_t size);
+void	*realloc(void *ptr, size_t size);
+void	*reallocf(void *ptr, size_t size);
+void	*calloc(size_t nmemb, size_t size);
+void	show_alloc_mem(void);
+bool	show_alloc_data(void *ptr, int print_char);
+
+#endif

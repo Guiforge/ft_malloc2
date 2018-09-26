@@ -6,7 +6,7 @@
 /*   By: gpouyat <gpouyat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/01 00:16:43 by gpouyat           #+#    #+#             */
-/*   Updated: 2018/09/26 14:50:17 by gpouyat          ###   ########.fr       */
+/*   Updated: 2018/09/26 20:03:43 by gpouyat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,7 @@ void	init_zones(void)
 		g_malloc.medium_end = g_malloc.medium + g_malloc.medium->size;
 	if (!g_malloc.medium || !g_malloc.tiny)
 		malloc_error(E_INTERN_MALLOC_INIT_FAIL);
+
+	// #include <assert.h>	
+	// assert((long)g_malloc.tiny % 16);
 }

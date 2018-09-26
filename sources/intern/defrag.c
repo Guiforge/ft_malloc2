@@ -6,13 +6,13 @@
 /*   By: gpouyat <gpouyat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/26 16:36:30 by gpouyat           #+#    #+#             */
-/*   Updated: 2018/09/26 16:57:55 by gpouyat          ###   ########.fr       */
+/*   Updated: 2018/09/26 20:04:48 by gpouyat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/intern_malloc.h"
 
-static void fusion(t_block *b)
+void	fusion(t_block *b)
 {
 	if (b->next && b->next->free)
 	{
@@ -27,9 +27,11 @@ void	defrag(t_block *zone)
 {
 	t_block		*b;
 
+	b = zone;
 	while (b)
 	{
-		fusion(b);
+		if (b->free)
+			fusion(b);
 		b = b->next;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: gpouyat <gpouyat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/25 21:17:10 by gpouyat           #+#    #+#             */
-/*   Updated: 2018/09/26 16:57:34 by gpouyat          ###   ########.fr       */
+/*   Updated: 2018/09/26 20:04:42 by gpouyat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,6 @@ t_block		*create_zone(size_t size)
 		malloc_error(E_INTERN_MALLOC_CANT_ALLOC);
 		return (NULL);
 	}
-	zone->free = 1;
-	zone->previous = NULL;
-	zone->next = NULL;
-	zone->size = size_zone - BLOCK_SIZE;
+	set_extra(zone, size_zone - BLOCK_SIZE, NULL, NULL, 1);
 	return (zone);
 }
