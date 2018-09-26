@@ -6,7 +6,7 @@
 /*   By: gpouyat <gpouyat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/01 00:16:43 by gpouyat           #+#    #+#             */
-/*   Updated: 2018/09/26 20:03:43 by gpouyat          ###   ########.fr       */
+/*   Updated: 2018/09/26 22:39:27 by gpouyat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ void	init_zones(void)
 		return ;
 	g_malloc.tiny = create_zone(TINY_SIZE);
 	if (g_malloc.tiny)
-		g_malloc.tiny_end = g_malloc.tiny + g_malloc.tiny->size;
+		g_malloc.tiny_end = g_malloc.tiny + g_malloc.tiny->size + BLOCK_SIZE;
 	g_malloc.medium = create_zone(MEDIUM_SIZE);
 	if (g_malloc.medium)
-		g_malloc.medium_end = g_malloc.medium + g_malloc.medium->size;
+		g_malloc.medium_end = g_malloc.medium + g_malloc.medium->size + BLOCK_SIZE;
 	if (!g_malloc.medium || !g_malloc.tiny)
 		malloc_error(E_INTERN_MALLOC_INIT_FAIL);
 

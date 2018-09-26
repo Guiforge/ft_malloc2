@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_malloc.h                                        :+:      :+:    :+:   */
+/*   calloc.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpouyat <gpouyat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/25 21:16:09 by gpouyat           #+#    #+#             */
-/*   Updated: 2018/09/26 22:52:56 by gpouyat          ###   ########.fr       */
+/*   Created: 2018/01/16 12:35:45 by gpouyat           #+#    #+#             */
+/*   Updated: 2018/09/26 22:53:27 by gpouyat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_MALLOC_H
-# define FT_MALLOC_H
+#include "../includes/intern_malloc.h"
+#include "../includes/ft_malloc.h"
 
-# include "../libft/includes/libft.h"
-# include "./intern_malloc.h"
+void *calloc(size_t nelem, size_t elsize)
+{
+  void  *ptr;  
 
-void	free(void *ptr);
-void	*malloc(size_t size);
-// void	*realloc(void *ptr, size_t size);
-// void	*reallocf(void *ptr, size_t size);
-void	*calloc(size_t nmemb, size_t size);
-// void	show_alloc_mem(void);
-// bool	show_alloc_data(void *ptr, int print_char);
-
-#endif
+  if (nelem == 0 || elsize == 0)
+  {
+    nelem = 1;
+    elsize = 1;
+  }
+  ptr = malloc(nelem * elsize);
+  if (ptr)
+    ft_bzero(ptr, nelem * elsize);
+  return ptr;
+}

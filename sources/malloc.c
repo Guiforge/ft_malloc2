@@ -6,7 +6,7 @@
 /*   By: gpouyat <gpouyat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/26 18:56:29 by gpouyat           #+#    #+#             */
-/*   Updated: 2018/09/26 20:05:58 by gpouyat          ###   ########.fr       */
+/*   Updated: 2018/09/26 23:01:08 by gpouyat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,13 @@ void	*malloc(size_t size)
 	if (s <= MEDIUM_MAX && ptr_alloc == NULL)
 		ptr_alloc = create_alloc(g_malloc.medium, s);
 	if (ptr_alloc == NULL)
-	{
 		ptr_alloc = link_new_zone(&(g_malloc.large), s);
-	}
-	#include <assert.h>	
-	assert(!((long)get_data(ptr_alloc) % 16));
+	if (ptr_alloc)
+		ptr_alloc->free = 0;
+
+	// #include <assert.h>	
+	// assert(!((long)get_data(ptr_alloc) % 16));
+	// ft_putendl("TOTO");
+	// ft_putnbr_base_fd((size_t)get_data(ptr_alloc), 16, 1);
 	return (get_data(ptr_alloc));
 }
