@@ -15,6 +15,7 @@
             "intelliSenseMode": "clang-x64",
             "browse": {
                 "path": [
+                    "${workspaceFolder}/includes",
                     "${workspaceFolder}",
                     "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1",
                     "/usr/local/include",
@@ -37,6 +38,7 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/includes",
+                "${workspaceFolder}",
                 "/usr/include",
                 "/usr/local/include",
                 "${workspaceFolder}"
@@ -57,6 +59,7 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/includes",
+                "${workspaceFolder}",
                 "C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/include",
                 "${workspaceFolder}"
             ],
@@ -76,5 +79,5 @@
             }
         }
     ],
-    "version": 4
+    "version": 3
 }

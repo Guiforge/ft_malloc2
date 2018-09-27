@@ -6,7 +6,7 @@
 /*   By: gpouyat <gpouyat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/01 00:16:43 by gpouyat           #+#    #+#             */
-/*   Updated: 2018/09/26 22:39:27 by gpouyat          ###   ########.fr       */
+/*   Updated: 2018/09/27 13:33:59 by gpouyat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ t_malloc_global		g_malloc = {
 	NULL,
 	NULL,
 	NULL,
-	0
+	0,
+	PTHREAD_MUTEX_INITIALIZER
 };
 
 void	init_zones(void)

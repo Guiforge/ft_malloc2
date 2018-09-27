@@ -6,7 +6,7 @@
 #    By: gpouyat <gpouyat@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/05 12:29:27 by gpouyat           #+#    #+#              #
-#    Updated: 2018/09/26 22:52:03 by gpouyat          ###   ########.fr        #
+#    Updated: 2018/09/27 14:30:06 by gpouyat          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,10 @@ SRCS_NAME		+= intern/create_zone.c intern/error.c intern/init_zones.c \
 					intern/find_block.c intern/get.c intern/check_align.c \
 					intern/split_block.c intern/set_extra.c \
 					intern/resize_block.c intern/defrag.c intern/link_zone.c \
-					intern/create_alloc.c
-SRCS_NAME		+= malloc.c free.c calloc.c
+					intern/create_alloc.c intern/is_valid_addr.c \
+					intern/copy_block.c intern/pthread_malloc.c
+SRCS_NAME		+= malloc.c free.c calloc.c realloc.c show_alloc_mem.c \
+					show_alloc_data.c
 
 
 ###############################################################################

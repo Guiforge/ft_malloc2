@@ -6,7 +6,7 @@
 /*   By: gpouyat <gpouyat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/26 18:56:29 by gpouyat           #+#    #+#             */
-/*   Updated: 2018/09/26 23:01:08 by gpouyat          ###   ########.fr       */
+/*   Updated: 2018/09/27 13:36:01 by gpouyat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	*malloc(size_t size)
 	ptr_alloc = NULL;
 	init_zones();
 	s = ft_align(size, 16);
+	malloc_pthread_lock(g_malloc.mutex);
 	if (s <= TINY_MAX)
 		ptr_alloc = create_alloc(g_malloc.tiny, s);
 	if (s <= MEDIUM_MAX && ptr_alloc == NULL)
@@ -31,10 +32,13 @@ void	*malloc(size_t size)
 		ptr_alloc = link_new_zone(&(g_malloc.large), s);
 	if (ptr_alloc)
 		ptr_alloc->free = 0;
+	malloc_pthread_unlock(g_malloc.mutex);
+	
 
-	// #include <assert.h>	
-	// assert(!((long)get_data(ptr_alloc) % 16));
+	#include <assert.h>	
+	assert(!((long)get_data(ptr_alloc) % 16));
 	// ft_putendl("TOTO");
 	// ft_putnbr_base_fd((size_t)get_data(ptr_alloc), 16, 1);
+	// ft_putendl("");
 	return (get_data(ptr_alloc));
 }

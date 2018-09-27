@@ -6,7 +6,7 @@
 /*   By: gpouyat <gpouyat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/26 12:26:26 by gpouyat           #+#    #+#             */
-/*   Updated: 2018/09/26 20:42:03 by gpouyat          ###   ########.fr       */
+/*   Updated: 2018/09/27 15:02:06 by gpouyat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include "../libft/includes/libft.h"
 #include <sys/mman.h>
+#include <pthread.h>
 
 typedef struct			s_block
 {
@@ -32,12 +33,13 @@ typedef struct		s_malloc_global
 	void			*medium_end;
 	t_block			*large;
 	int				error;
+	pthread_mutex_t	mutex;
 }					t_malloc_global;
 
 # define MALLOC_FLAG_MMAP_RW PROT_READ | PROT_WRITE
 # define MALLOC_FLAG_MMAP_MAP MAP_PRIVATE | MAP_ANON
 # define TINY_MAX 1024
-# define MEDIUM_MAX TINY_MAX * 3
+# define MEDIUM_MAX TINY_MAX * 5
 # define TINY_SIZE TINY_MAX * 1000
 # define MEDIUM_SIZE MEDIUM_MAX * 1000
 
@@ -59,5 +61,9 @@ void		set_extra(t_block *block, size_t size, t_block *next,
 t_block		*resize_block(t_block *block, size_t new_size);
 t_block		*link_destroy_zone(t_block **zone, t_block *block);
 t_block		*link_new_zone(t_block **zone, size_t size);
+t_block    	*is_valid_addr(void *ptr);
+void		copy_block(t_block *src, t_block *dst);
+void		malloc_pthread_unlock(pthread_mutex_t mutex);
+void		malloc_pthread_lock(pthread_mutex_t mutex);
 
 #endif

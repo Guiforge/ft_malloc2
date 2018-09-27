@@ -6,7 +6,7 @@
 /*   By: gpouyat <gpouyat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/26 17:08:44 by gpouyat           #+#    #+#             */
-/*   Updated: 2018/09/26 18:22:29 by gpouyat          ###   ########.fr       */
+/*   Updated: 2018/09/27 14:22:13 by gpouyat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ t_block		*resize_block(t_block *block, size_t new_size)
 	if (new_size < block->size)
 		return (reduce_block(block, new_size));
 	else if (new_size > block->size)
-		return (grow_up_block(block, new_size - block->size));
+		return (grow_up_block(block, new_size));
 	else
 		return (block);
 	return (NULL);
