@@ -6,7 +6,7 @@
 /*   By: gpouyat <gpouyat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 11:21:03 by gpouyat           #+#    #+#             */
-/*   Updated: 2018/09/27 14:31:37 by gpouyat          ###   ########.fr       */
+/*   Updated: 2018/09/27 16:01:20 by gpouyat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 extern t_malloc_global		g_malloc;
 
-static void		print_head(t_block *header)
+static void			print_head(t_block *header)
 {
 	ft_putstr("********* SHOW DATA *********\n");
 	ft_printf("*** Header: %#x, size of header: %d, [(size_t)size: %zu,"
@@ -50,7 +50,7 @@ static void			print_data_char(unsigned char *data, size_t size)
 
 static void			print_data_hex(unsigned char *data, size_t size)
 {
-	size_t		count;
+	size_t			count;
 
 	count = 0;
 	ft_putstr("             ");
@@ -70,10 +70,9 @@ static void			print_data_hex(unsigned char *data, size_t size)
 	ft_putendl("\n");
 }
 
-int				show_alloc_data(void *ptr, int print_char)
+int					show_alloc_data(void *ptr, int print_char)
 {
-	t_block		*block;
-
+	t_block			*block;
 
 	if (!ptr || !is_valid_addr(ptr))
 		return (-1);

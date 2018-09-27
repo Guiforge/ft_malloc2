@@ -6,7 +6,7 @@
 /*   By: gpouyat <gpouyat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/26 17:08:44 by gpouyat           #+#    #+#             */
-/*   Updated: 2018/09/27 14:22:13 by gpouyat          ###   ########.fr       */
+/*   Updated: 2018/09/27 16:12:14 by gpouyat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 static t_block		*reduce_block(t_block *block, size_t new_size)
 {
-	t_block		*new;
+	t_block			*new;
 
-	if (block->size - new_size >= (BLOCK_SIZE)) // maybe block_size + 16
+	if (block->size - new_size >= (BLOCK_SIZE))
 	{
 		new = split_block(block, new_size);
 		if (new)
@@ -28,18 +28,18 @@ static t_block		*reduce_block(t_block *block, size_t new_size)
 	return (NULL);
 }
 
-static t_block	*grow_up_block(t_block *block, size_t new_size)
+static t_block		*grow_up_block(t_block *block, size_t new_size)
 {
 	if (!block->next || !block->next->free ||
 		!((block->size + BLOCK_SIZE + block->next->size) >= new_size))
 		return (NULL);
 	fusion(block);
-	if (block->size - new_size >= (BLOCK_SIZE)) // maybe block_size + 16
+	if (block->size - new_size >= (BLOCK_SIZE))
 		split_block(block, new_size);
 	return (block);
 }
 
-t_block		*resize_block(t_block *block, size_t new_size)
+t_block				*resize_block(t_block *block, size_t new_size)
 {
 	check_align(new_size);
 	if (new_size < block->size)

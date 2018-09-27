@@ -6,7 +6,7 @@
 /*   By: gpouyat <gpouyat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/26 15:14:00 by gpouyat           #+#    #+#             */
-/*   Updated: 2018/09/26 19:37:05 by gpouyat          ###   ########.fr       */
+/*   Updated: 2018/09/27 16:02:13 by gpouyat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,5 @@
 void	check_align(size_t size)
 {
 	if (size % 16)
-		malloc_error(E_INTERN_MALLOC_ALLIGN); // CODE ERROR TO DO
+		malloc_error(E_INTERN_MALLOC_ALLIGN);
 }

@@ -6,7 +6,7 @@
 /*   By: gpouyat <gpouyat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/25 21:16:09 by gpouyat           #+#    #+#             */
-/*   Updated: 2018/09/27 14:29:34 by gpouyat          ###   ########.fr       */
+/*   Updated: 2018/09/27 16:16:35 by gpouyat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@
 # define PCHAR_DATA 1
 # define PHEX_DATA 2
 
-# include "../libft/includes/libft.h"
-// # include "./intern_malloc.h"
+# include <stddef.h>
 
 void	free(void *ptr);
 void	*malloc(size_t size);
@@ -25,6 +24,6 @@ void	*realloc(void *ptr, size_t size);
 void	*reallocf(void *ptr, size_t size);
 void	*calloc(size_t nmemb, size_t size);
 void	show_alloc_mem(void);
-int	    show_alloc_data(void *ptr, int print_char);
+int		show_alloc_data(void *ptr, int print_char);
 
 #endif

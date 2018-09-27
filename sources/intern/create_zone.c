@@ -6,14 +6,14 @@
 /*   By: gpouyat <gpouyat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/25 21:17:10 by gpouyat           #+#    #+#             */
-/*   Updated: 2018/09/26 20:04:42 by gpouyat          ###   ########.fr       */
+/*   Updated: 2018/09/27 16:13:50 by gpouyat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/malloc_error.h"
 #include "../../includes/intern_malloc.h"
 
-t_block		*create_zone(size_t size)
+t_block			*create_zone(size_t size)
 {
 	t_block		*zone;
 	size_t		size_zone;
@@ -26,6 +26,7 @@ t_block		*create_zone(size_t size)
 		malloc_error(E_INTERN_MALLOC_CANT_ALLOC);
 		return (NULL);
 	}
-	set_extra(zone, size_zone - BLOCK_SIZE, NULL, NULL, 1);
+	set_extra(zone, size_zone - BLOCK_SIZE, NULL, NULL);
+	zone->free = 1;
 	return (zone);
 }

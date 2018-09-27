@@ -6,7 +6,7 @@
 /*   By: gpouyat <gpouyat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/25 21:24:00 by gpouyat           #+#    #+#             */
-/*   Updated: 2018/09/26 15:07:48 by gpouyat          ###   ########.fr       */
+/*   Updated: 2018/09/27 16:07:03 by gpouyat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "../../includes/malloc_error.h"
 
 extern t_malloc_global	g_malloc;
-
 
 static void		intern_malloc_error_over(char *msg, int quit)
 {

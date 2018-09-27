@@ -6,7 +6,7 @@
 /*   By: gpouyat <gpouyat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/26 15:11:26 by gpouyat           #+#    #+#             */
-/*   Updated: 2018/09/26 18:07:56 by gpouyat          ###   ########.fr       */
+/*   Updated: 2018/09/27 16:14:49 by gpouyat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@ t_block	*split_block(t_block *block, size_t size)
 
 	check_align(size);
 	if (!block || block->size <= size + BLOCK_SIZE)
-		return(NULL);
+		return (NULL);
 	new = get_data(block) + size;
-	set_extra(new, block->size - size - BLOCK_SIZE, block->next, block, 1);
+	set_extra(new, block->size - size - BLOCK_SIZE, block->next, block);
+	new->free = 1;
 	block->next = new;
 	block->size = size;
 	return (new);

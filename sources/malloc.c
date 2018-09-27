@@ -6,7 +6,7 @@
 /*   By: gpouyat <gpouyat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/26 18:56:29 by gpouyat           #+#    #+#             */
-/*   Updated: 2018/09/27 13:36:01 by gpouyat          ###   ########.fr       */
+/*   Updated: 2018/09/27 15:58:53 by gpouyat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 extern t_malloc_global		g_malloc;
 
-
-void	*malloc(size_t size)
+void		*malloc(size_t size)
 {
 	t_block	*ptr_alloc;
 	size_t	s;
@@ -33,12 +32,5 @@ void	*malloc(size_t size)
 	if (ptr_alloc)
 		ptr_alloc->free = 0;
 	malloc_pthread_unlock(g_malloc.mutex);
-	
-
-	#include <assert.h>	
-	assert(!((long)get_data(ptr_alloc) % 16));
-	// ft_putendl("TOTO");
-	// ft_putnbr_base_fd((size_t)get_data(ptr_alloc), 16, 1);
-	// ft_putendl("");
 	return (get_data(ptr_alloc));
 }
