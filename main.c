@@ -1,18 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gpouyat <gpouyat@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/10/02 12:00:56 by gpouyat           #+#    #+#             */
+/*   Updated: 2018/10/02 12:02:02 by gpouyat          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "./includes/ft_malloc.h"
 
-// extern t_malloc_global	g_malloc;
-
-// void	print_one(t_block *block)
-// {
-// 	if (block)
-// 		printf("size = %lu, next = %lx, free = %d\n", block->size, (long)block->next, block->free);
-// 	else
-// 		printf("NO blocks\n");
-// }
- #include <assert.h>
-int		main()
+int		main(void)
 {
-	char *toto = malloc(42);
-	toto = NULL;
+	char	*toto;
+
 	toto = malloc(42);
+	free(toto);
+	return (0);
 }

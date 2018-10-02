@@ -6,7 +6,7 @@
 /*   By: gpouyat <gpouyat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/26 18:56:29 by gpouyat           #+#    #+#             */
-/*   Updated: 2018/09/27 15:58:53 by gpouyat          ###   ########.fr       */
+/*   Updated: 2018/10/02 11:56:44 by gpouyat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void		*malloc(size_t size)
 	size_t	s;
 
 	ptr_alloc = NULL;
-	init_zones();
 	s = ft_align(size, 16);
 	malloc_pthread_lock(g_malloc.mutex);
+	init_zones();
 	if (s <= TINY_MAX)
 		ptr_alloc = create_alloc(g_malloc.tiny, s);
 	if (s <= MEDIUM_MAX && ptr_alloc == NULL)
