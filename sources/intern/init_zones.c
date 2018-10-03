@@ -6,22 +6,14 @@
 /*   By: gpouyat <gpouyat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/01 00:16:43 by gpouyat           #+#    #+#             */
-/*   Updated: 2018/09/27 16:08:01 by gpouyat          ###   ########.fr       */
+/*   Updated: 2018/10/03 14:18:05 by gpouyat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/intern_malloc.h"
 #include "../../includes/malloc_error.h"
 
-t_malloc_global		g_malloc = {
-	NULL,
-	NULL,
-	NULL,
-	NULL,
-	NULL,
-	0,
-	PTHREAD_MUTEX_INITIALIZER
-};
+extern t_malloc_global g_malloc;
 
 void	init_zones(void)
 {

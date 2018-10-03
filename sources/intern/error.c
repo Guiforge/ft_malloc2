@@ -6,7 +6,7 @@
 /*   By: gpouyat <gpouyat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/25 21:24:00 by gpouyat           #+#    #+#             */
-/*   Updated: 2018/09/27 16:07:03 by gpouyat          ###   ########.fr       */
+/*   Updated: 2018/10/03 14:19:41 by gpouyat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,7 @@ void			malloc_error(t_intern_malloc_error error)
 		intern_malloc_error_over("Invalid size Malloc", 1);
 	if (error == E_INTERN_MALLOC_ALLIGN)
 		intern_malloc_error_over("intern error, Size not align", 1);
+	if (error == E_INTERN_MALLOC_PTHREAD_UNLOCK)
+		intern_malloc_error_over("intern error in mutex", 1);
 	g_malloc.error = error;
 }

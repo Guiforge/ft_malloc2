@@ -6,7 +6,7 @@
 /*   By: gpouyat <gpouyat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/26 12:26:26 by gpouyat           #+#    #+#             */
-/*   Updated: 2018/10/02 11:51:26 by gpouyat          ###   ########.fr       */
+/*   Updated: 2018/10/02 21:46:58 by gpouyat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void					*get_data(void *block);
 t_block					*get_block(void *data);
 t_block					*split_block(t_block *block, size_t size);
 void					defrag(t_block *zone);
+void					defrag_next(t_block *b);
 void					fusion(t_block *b);
 void					set_extra(t_block *block, size_t size, t_block *next,
 							t_block *previous);

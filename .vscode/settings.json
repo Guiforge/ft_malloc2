@@ -1,5 +1,6 @@
 {
-    "files.associations": {
-        "intern_malloc.h": "c"
-    }
+	"files.associations": {
+		"intern_malloc.h": "c",
+		"malloc_error.h": "c"
+	}
 }

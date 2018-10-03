@@ -6,7 +6,7 @@
 /*   By: gpouyat <gpouyat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 11:21:03 by gpouyat           #+#    #+#             */
-/*   Updated: 2018/09/27 16:01:20 by gpouyat          ###   ########.fr       */
+/*   Updated: 2018/10/03 12:11:45 by gpouyat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,13 @@ int					show_alloc_data(void *ptr, int print_char)
 {
 	t_block			*block;
 
-	if (!ptr || !is_valid_addr(ptr))
-		return (-1);
-	block = get_block(ptr);
 	malloc_pthread_lock(g_malloc.mutex);
+	if (!ptr || !is_valid_addr(ptr))
+	{
+		malloc_pthread_unlock(g_malloc.mutex);
+		return (-1);
+	}
+	block = get_block(ptr);
 	print_head(get_block(ptr));
 	if (print_char & PHEX_DATA)
 		print_data_hex(ptr, block->size);
