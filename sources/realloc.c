@@ -6,7 +6,7 @@
 /*   By: gpouyat <gpouyat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/27 11:30:22 by gpouyat           #+#    #+#             */
-/*   Updated: 2018/10/03 14:51:06 by gpouyat          ###   ########.fr       */
+/*   Updated: 2018/10/08 11:47:58 by gpouyat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,12 @@ void		*realloc(void *ptr, size_t size)
 	zone = is_valid_addr(ptr);
 	malloc_pthread_unlock(g_malloc.mutex);
 	if (!zone)
-	{
 		return (NULL);
-	}
 	malloc_pthread_lock(g_malloc.mutex);
 	block = resize_block(get_block(ptr), ft_align(size, 16));
 	malloc_pthread_unlock(g_malloc.mutex);
 	if (block)
-	{
 		return (get_data(block));
-	}
 	if ((block = malloc(size)))
 	{
 		malloc_pthread_lock(g_malloc.mutex);

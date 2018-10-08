@@ -6,13 +6,11 @@
 /*   By: gpouyat <gpouyat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/26 18:56:29 by gpouyat           #+#    #+#             */
-/*   Updated: 2018/10/03 14:43:05 by gpouyat          ###   ########.fr       */
+/*   Updated: 2018/10/08 11:47:44 by gpouyat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/intern_malloc.h"
-
-// extern t_malloc_global		g_malloc;
 
 t_malloc_global		g_malloc = {
 	NULL,

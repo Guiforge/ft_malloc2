@@ -6,7 +6,7 @@
 /*   By: gpouyat <gpouyat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/26 20:19:26 by gpouyat           #+#    #+#             */
-/*   Updated: 2018/10/03 14:43:10 by gpouyat          ###   ########.fr       */
+/*   Updated: 2018/10/08 11:47:32 by gpouyat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void			free(void *ptr)
 
 	if (!ptr)
 		return ;
-
 	malloc_pthread_lock(g_malloc.mutex);
 	if ((zone = is_valid_addr(ptr)))
 	{

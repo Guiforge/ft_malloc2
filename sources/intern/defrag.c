@@ -6,7 +6,7 @@
 /*   By: gpouyat <gpouyat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/26 16:36:30 by gpouyat           #+#    #+#             */
-/*   Updated: 2018/10/03 12:13:52 by gpouyat          ###   ########.fr       */
+/*   Updated: 2018/10/08 11:48:42 by gpouyat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void			defrag_next(t_block *b)
 	last = b;
 	if (!b)
 		return ;
-	while(last->next && last->next->free)
+	while (last->next && last->next->free)
 		last = last->next;
 	if (last == b)
 		return ;
